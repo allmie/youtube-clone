@@ -2,6 +2,9 @@ header.header
   .header__column
     span ❤
   .header__column
+    form(action=routes.search, method="get") 
+      input(type="text", name="searchTerm")
+  .header__column
     ul
       li 
         a(href=routes.login) login

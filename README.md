@@ -2,6 +2,19 @@
 
 Cloning Youtube with Javascript and NodeJS
 
+## Pages:
+
+- [ ] Home
+- [x] Join
+- [x] Login
+- [ ] Search
+- [ ] User Detail
+- [x] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
+
 ### `Babel`
 
 1. package 설치

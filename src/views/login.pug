@@ -1,4 +1,9 @@
 extends layouts/layout
 
 block content
-  h2 login
+  .form-container
+    form(action="/login", method="post") 
+      input(type="email", name="email", placeholder="Email")
+      input(type="password", name="password", placeholder="Password")
+      input(type="submit", value="Login")
+    include partials/socialLogin

@@ -57,3 +57,25 @@ npm install -D @babel/cli @babel/core @babel/node @babel/preset-env
 
 - bodyParser 모듈이 express에 포함되기 때문에 별도의 설치가 필요하지 않음
 - bodyParser.json() => express.json()
+
+### `Contnets security issue`
+
+app.js
+
+### 1
+
+```
+app.use(helmet({ contentSecurityPolicy: false }));
+```
+
+### 2
+
+```
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' https://archive.org"
+  );
+  return next();
+});
+```

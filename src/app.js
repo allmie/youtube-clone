@@ -11,7 +11,7 @@ import { localsMiddleware } from "../middlewares";
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());

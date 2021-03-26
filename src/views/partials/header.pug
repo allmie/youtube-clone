@@ -6,7 +6,15 @@ header.header
       input(type="text", name="searchTerm")
   .header__column
     ul
-      li 
-        a(href=routes.login) login
-      li 
-        a(href=routes.join) join
+      if !user.isAuthenticated
+        li 
+          a(href=routes.login) login
+        li 
+          a(href=routes.join) join
+      else
+        li
+          a(href=`/videos${routes.upload}`) Upload
+        li
+          a(href=routes.userDetail(user.id)) Profile
+        li
+          a(href=routes.logout) Logout

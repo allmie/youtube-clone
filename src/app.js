@@ -6,7 +6,7 @@ import helmet from "helmet";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-import routes from "../routes";
+import routes from "./routes";
 import { localsMiddleware } from "../middlewares";
 
 const app = express();

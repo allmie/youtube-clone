@@ -79,3 +79,22 @@ app.use(function (req, res, next) {
   return next();
 });
 ```
+
+### `Routes issue`
+
+```
+userDetail: (id) => {
+    if (id) {
+      return `/users/${id}`;
+    } else {
+      return USER_DETAIL;             // O
+      return `/users${USER_DETAIL}`;  // X
+    }
+  },
+
+videoDetail:
+  ...
+  return `${VIDEO_DETAIL}`;           // O
+  return `/videos${VIDEO_DETAIL}`;    // X
+
+```

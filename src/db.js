@@ -1,21 +1,15 @@
-export const audios = [
-  {
-    title: "test",
-    description: "abcdefghijklmnopqrstuvwxyz",
-    audio: "src/1.mp3",
-    id: 2223,
-  },
-  {
-    title: "test2",
-    description: "222abcdefghijklmnopqrstuvwxyz",
-    audio: "/src/2.mp3",
-    id: 222324,
-  },
-  {
-    title: "test3",
-    description: "333abcdefghijklmnopqrstuvwxyz",
-    audio:
-      "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
-    id: 166668,
-  },
-];
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://localhost:27017/cloning-youtube", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("Connected to DB");
+const handleError = (error) => console.log(`Error on DB connection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);

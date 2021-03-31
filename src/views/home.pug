@@ -3,9 +3,10 @@ include mixins/videoBlock
 
 block content
   .videos
-    each movie in audios
+    h1 Home
+    each movie in videos
       +videoBlock({
-        audio: movie.audio,
+        videoFile: movie.fileUrl,
         title: movie.title,
         description: movie.description,
         id: movie.id

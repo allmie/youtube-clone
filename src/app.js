@@ -13,6 +13,7 @@ const app = express();
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(morgan("dev"));
+app.use("/src/uploads", express.static("src/uploads"));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

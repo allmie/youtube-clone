@@ -1,4 +1,7 @@
+import multer from "multer";
 import routes from "./src/routes";
+
+const uploadVideo = multer({ dest: "src/uploads/videos/" });
 
 // templates에 적용됨, import routes from "routes"를 대체하지는 못함
 export const localsMiddleware = (req, res, next) => {
@@ -10,3 +13,6 @@ export const localsMiddleware = (req, res, next) => {
   };
   next();
 };
+
+// only one file upload, insert fileName in form
+export const uploadMiddleware = uploadVideo.single(`videoFile`);

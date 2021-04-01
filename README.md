@@ -58,7 +58,7 @@ npm install -D @babel/cli @babel/core @babel/node @babel/preset-env
 - bodyParser 모듈이 express에 포함되기 때문에 별도의 설치가 필요하지 않음
 - bodyParser.json() => express.json()
 
-### `Contnets security issue`
+## `Contnets security issue`
 
 app.js
 
@@ -80,7 +80,9 @@ app.use(function (req, res, next) {
 });
 ```
 
-### `Routes issue`
+## Route issue
+
+`Routes issue 1`
 
 ```
 userDetail: (id) => {
@@ -98,3 +100,20 @@ videoDetail:
   return `/videos${VIDEO_DETAIL}`;    // X
 
 ```
+
+`Routes issue 2`
+
+#### home.pug(mixin)
+
+```
+video.videoBlock__thumbnail(src=video.videoFile, controls, autoplay)
+```
+
+#### videoDetail.pug
+
+```
+video(src=video.fileUrl, controls)
+```
+
+- home.pug에서는 video 동작, videoDetail.pug에서는 동작 안함.
+  why??

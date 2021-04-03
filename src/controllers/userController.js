@@ -1,7 +1,7 @@
-import routes from "../routes";
+import routes from '../routes';
 
 export const getJoin = (req, res) => {
-  res.render("join", { pageTitle: "Join" });
+  res.render('join', { pageTitle: 'Join' });
 };
 export const postJoin = (req, res) => {
   const {
@@ -10,7 +10,7 @@ export const postJoin = (req, res) => {
 
   if (password !== password2) {
     res.status(400);
-    res.render("join", { pageTitle: "Join" });
+    res.render('join', { pageTitle: 'Join' });
   } else {
     // To Do: Register User
     // To Do: User Login
@@ -19,7 +19,7 @@ export const postJoin = (req, res) => {
 };
 
 export const getLogin = (req, res) => {
-  res.render("login", { pageTitle: "Login" });
+  res.render('login', { pageTitle: 'Login' });
 };
 export const postLogin = (req, res) => {
   res.redirect(routes.home);
@@ -30,11 +30,11 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const users = (req, res) => res.render("users", { pageTitle: "Users" });
+export const users = (req, res) => res.render('users', { pageTitle: 'Users' });
 
 export const userDetail = (req, res) =>
-  res.render("userDetail", { pageTitle: "User Detail" });
+  res.render('userDetail', { pageTitle: 'User Detail' });
 export const editProfile = (req, res) =>
-  res.render("editProfile", { pageTitle: "Edit Profile" });
+  res.render('editProfile', { pageTitle: 'Edit Profile' });
 export const changePassword = (req, res) =>
-  res.render("changePassword", { pageTitle: "Change Password" });
+  res.render('changePassword', { pageTitle: 'Change Password' });

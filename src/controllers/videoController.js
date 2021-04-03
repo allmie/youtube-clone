@@ -1,15 +1,16 @@
-import "../db";
-import Video from "../models/Video";
-import routes from "../routes";
+import '../db';
+import Video from '../models/Video';
+import routes from '../routes';
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    // -1: 역순으로 정렬
+    const videos = await Video.find().sort({ _id: -1 });
 
-    res.render("home", { pageTitle: "Home", videos });
+    res.render('home', { pageTitle: 'Home', videos });
   } catch (error) {
     console.log(error);
-    res.render("home", { pageTitle: "Home", videos: [] });
+    res.render('home', { pageTitle: 'Home', videos: [] });
   }
 };
 
@@ -18,11 +19,11 @@ export const search = (req, res) => {
     query: { searchTerm },
   } = req;
 
-  res.render("search", { pageTitle: "Search", searchTerm, videos });
+  res.render('search', { pageTitle: 'Search', searchTerm, videos });
 };
 
 export const getUpload = (req, res) => {
-  res.render("upload", { pageTitle: "Upload" });
+  res.render('upload', { pageTitle: 'Upload' });
 };
 export const postUpload = async (req, res) => {
   const {
@@ -48,7 +49,7 @@ export const videoDetail = async (req, res) => {
 
   try {
     const video = await Video.findById(id);
-    res.render("videoDetail", { pageTitle: "Video Detail", video });
+    res.render('videoDetail', { pageTitle: 'Video Detail', video });
   } catch (error) {
     res.redirect(routes.home);
   }
@@ -60,7 +61,7 @@ export const getVideoEdit = async (req, res) => {
 
   try {
     const video = await Video.findById(id);
-    res.render("videoEdit", { pageTitle: `Edit ${video.title}`, video });
+    res.render('videoEdit', { pageTitle: `Edit ${video.title}`, video });
   } catch (error) {
     res.redirect(routes.home);
   }

@@ -5,9 +5,8 @@ header.header
   .header__column
     form(action=routes.search, method="get") 
       input(type="text", name="searchTerm")
-  .header__column
-  #{console.log(user)}
-    ul
+  .header__column 
+     ul
       if !user
         li 
           a(href=routes.login) login

@@ -117,3 +117,7 @@ video(src=video.fileUrl, controls)
 
 - home.pug에서는 video 동작, videoDetail.pug에서는 동작 안함.
   why??
+
+## dotenv issue
+
+- `.env` 파일은 디렉토리 위치 조정(root directory)

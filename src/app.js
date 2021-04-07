@@ -1,9 +1,11 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import passport from 'passport';
 import session from 'express-session';
+import MongoStore from 'connect-mongo';
 import globalRouter from './routers/globalRouter';
 import userRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
@@ -11,6 +13,8 @@ import routes from './routes';
 import { localsMiddleware } from '../middlewares';
 
 import '../passport';
+
+dotenv.config();
 
 const app = express();
 
@@ -29,10 +33,12 @@ app.use(
     resave: true,
     saveUninitialized: false,
     // 초기화되지 않은 session을 저장소에 저장, 변경되지 않는 세션은 유지, 로그인 시 false
+
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
+    // session 유지를 위한 데이터 저장(in mongoDB)
   })
 );
 
-app.use(session({}));
 // passport, cookie-parser 뒤에 작성
 app.use(passport.initialize());
 app.use(passport.session());

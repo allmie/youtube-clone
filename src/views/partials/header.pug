@@ -6,8 +6,9 @@ header.header
     form(action=routes.search, method="get") 
       input(type="text", name="searchTerm")
   .header__column
+  #{console.log(user)}
     ul
-      if !user.isAuthenticated
+      if !user
         li 
           a(href=routes.login) login
         li 
